@@ -39,6 +39,21 @@ public class Menu extends Fragment {
             }
         });
 
+        Button btnLlistar = fMenu.findViewById(R.id.btnLlistar);
+        btnLlistar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager menuManager = getFragmentManager();
+                FragmentTransaction menuTransaction = menuManager.beginTransaction();
+
+                Fragment fLlistarIncidencia = new afegirincidencia();
+
+                menuTransaction.replace(R.id.frameLayout2, fLlistarIncidencia);
+
+                menuTransaction.commit();
+            }
+        });
+
         return fMenu;
     }
 }
