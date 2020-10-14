@@ -3,6 +3,8 @@ package com.example.myproyectem8_2;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,7 +28,14 @@ public class Menu extends Fragment {
             public void onClick(View v) {
                 // Do something in response to button click
                 //Log.i("proves", "buttons afegir click");
+                FragmentManager menuManager = getFragmentManager();
+                FragmentTransaction menuTransaction = menuManager.beginTransaction();
 
+                Fragment fAfegirIncidencia = new afegirincidencia();
+
+                menuTransaction.replace(R.id.frameLayout, fAfegirIncidencia);
+
+                menuTransaction.commit();
             }
         });
 
