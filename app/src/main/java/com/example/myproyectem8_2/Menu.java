@@ -25,7 +25,8 @@ public class Menu extends Fragment {
         btnAfegir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Do something in response to button click
-                Log.i("proves", "buttons afegir click");
+                //Log.i("proves", "buttons afegir click");
+
             }
         });
 
