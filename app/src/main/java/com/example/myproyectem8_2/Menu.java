@@ -23,6 +23,7 @@ public class Menu extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View fMenu = inflater.inflate(R.layout.fragment_menu, container, false);
+
         Button btnAfegir = fMenu.findViewById(R.id.btnAfegir);
         btnAfegir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -46,9 +47,24 @@ public class Menu extends Fragment {
                 FragmentManager menuManager = getFragmentManager();
                 FragmentTransaction menuTransaction = menuManager.beginTransaction();
 
-                Fragment fLlistarIncidencia = new afegirincidencia();
+                Fragment fLlistarIncidencia = new llistaincidencia();
 
                 menuTransaction.replace(R.id.frameLayout2, fLlistarIncidencia);
+
+                menuTransaction.commit();
+            }
+        });
+
+        Button btnEliminar = fMenu.findViewById(R.id.btnEliminar);
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager menuManager = getFragmentManager();
+                FragmentTransaction menuTransaction = menuManager.beginTransaction();
+
+                Fragment feliminar = new eliminar();
+
+                menuTransaction.replace(R.id.frameLayout3, feliminar);
 
                 menuTransaction.commit();
             }
