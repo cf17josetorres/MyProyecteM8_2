@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="AfegirIncidencia">Afegir Incidencia</string>
     <string name="LlistarIncidencia">Llistar Incidencia</string>
-    <string name="eliminar">eliminar</string>
+    <string name="Eliminar">Eliminar</string>
 
     <string-array name="Lista">
         <item>Afegir incidència</item>

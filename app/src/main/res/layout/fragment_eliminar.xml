@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".llistaincidencia">
+    tools:context=".eliminar">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/frameLayout2"
+        android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:text="@string/LlistarIncidencia" />
+        android:gravity="center|right|top"
+        android:text="@string/Eliminar" />
 
 </FrameLayout>
