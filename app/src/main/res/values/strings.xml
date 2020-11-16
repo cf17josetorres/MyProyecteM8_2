@@ -7,9 +7,8 @@
     <string name="Eliminar">Eliminar</string>
 
     <string-array name="Lista">
-        <item>Afegir incidència</item>
-        <item>Llistar incidències</item>
-        <item>Eliminar totes les incidències</item>
-        <item>Ajuda</item>
+        <item>Alta</item>
+        <item>Mediana</item>
+        <item>Baja</item>
     </string-array>
 </resources>

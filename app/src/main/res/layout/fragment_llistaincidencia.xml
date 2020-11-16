@@ -13,4 +13,9 @@
         android:gravity="center|top"
         android:text="@string/LlistarIncidencia" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </FrameLayout>

@@ -2,11 +2,14 @@ package com.example.myproyectem8_2.DB;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.myproyectem8_2.incidencia;
+
+import java.util.ArrayList;
 
 import static com.example.myproyectem8_2.DB.IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL;
 import static com.example.myproyectem8_2.DB.IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA;
@@ -50,4 +53,19 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<incidencia> listado(){
+        String sqllite = "select * from " + TABLE_NAME;
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ArrayList<incidencia> incidenciaa = new ArrayList<>();
+        Cursor c = sqLiteDatabase.rawQuery(sqllite, null);
+        if(c.moveToFirst()){
+            do{
+                String titol = c.getString(1);
+                String urgencia = c.getString(2);
+                incidenciaa.add(new incidencia(titol, urgencia));
+            } while (c.moveToNext());
+        }
+        c.close();
+        return incidenciaa;
+    }
 }
