@@ -34,7 +34,7 @@ public class Menu extends Fragment {
 
                 Fragment fAfegirIncidencia = new afegirincidencia();
 
-                menuTransaction.replace(R.id.frameLayout, fAfegirIncidencia);
+                menuTransaction.replace(R.id.contenedor, fAfegirIncidencia);
 
                 menuTransaction.commit();
             }
@@ -49,7 +49,7 @@ public class Menu extends Fragment {
 
                 Fragment fLlistarIncidencia = new llistaincidencia();
 
-                menuTransaction.replace(R.id.frameLayout2, fLlistarIncidencia);
+                menuTransaction.replace(R.id.contenedor, fLlistarIncidencia);
 
                 menuTransaction.commit();
             }
@@ -64,7 +64,7 @@ public class Menu extends Fragment {
 
                 Fragment feliminar = new eliminar();
 
-                menuTransaction.replace(R.id.frameLayout3, feliminar);
+                menuTransaction.replace(R.id.contenedor, feliminar);
 
                 menuTransaction.commit();
             }
