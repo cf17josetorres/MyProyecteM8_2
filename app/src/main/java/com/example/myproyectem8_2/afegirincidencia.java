@@ -54,6 +54,9 @@ public class afegirincidencia extends Fragment {
             public void onClick(View view) {
                 String urgenci = urgencia.getSelectedItem().toString();
                 EditText txtIncidencia = afegir.findViewById(R.id.txtincidencia);
+                incidencia inci = new incidencia(txtIncidencia,urgenci);
+                dbHelper.insertIncidencia(sqLiteDatabase,inci);
+
 
             }
         });

@@ -1,5 +1,7 @@
 package com.example.myproyectem8_2;
 
+import android.widget.EditText;
+
 public class incidencia {
     String titol;
     String urgencia;//(Alta, Mitjana, Baixa)
@@ -9,6 +11,9 @@ public class incidencia {
     public incidencia(String titol, String urgencia) {
         this.titol = titol;
         this.urgencia = urgencia;
+    }
+
+    public incidencia(EditText txtIncidencia, String urgenci) {
     }
 
     public String getTitol() {
