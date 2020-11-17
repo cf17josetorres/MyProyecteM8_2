@@ -1,6 +1,8 @@
 package com.example.myproyectem8_2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotomenu(){
-        Intent intent = new Intent (MainActivity.this, MainActivity.class);
+        Intent intent = new Intent (getApplicationContext(),home.class);
         startActivity(intent);
+
     }
 }
