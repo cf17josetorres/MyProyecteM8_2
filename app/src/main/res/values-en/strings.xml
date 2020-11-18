@@ -8,4 +8,6 @@
     <string name="Entrar">Login</string>
     <string name="Agrega">add</string>
     <string name="Titulo">title</string>
+    <string name="login_image_desc">"login image desc "</string>
+    <string name="remember_password">Remember Password</string>
 </resources>

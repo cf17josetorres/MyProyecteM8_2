@@ -18,9 +18,6 @@ public class home extends AppCompatActivity {
         FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
         transactiontres.replace(R.id.contenedor,me);
         transactiontres.commit();
-
-
-
     }
     public static Context getContext() {
         return getContext();

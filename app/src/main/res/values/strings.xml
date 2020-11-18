@@ -8,7 +8,8 @@
     <string name="AfegirIncidencia">Afegir Incidencia</string>
     <string name="LlistarIncidencia">Llistar Incidencia</string>
     <string name="Eliminar">Eliminar</string>
-
+    <string name="login_image_desc">Logo image</string>
+    <string name="remember_password">Remember Password</string>
 
     <string-array name="Lista">
         <item>Alta</item>
