@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyProyecteM8_2</string>
+    <string name="AfegirIncidencia">List Incidence</string>
+    <string name="LlistarIncidencia">Add Incidence</string>
+    <string name="Eliminar">Remove</string>
+    <string name="introducenombre">Name</string>
+    <string name="Entrar">Login</string>
+    <string name="Agrega">add</string>
+    <string name="Titulo">title</string>
+</resources>
