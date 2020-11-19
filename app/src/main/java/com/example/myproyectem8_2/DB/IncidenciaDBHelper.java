@@ -53,19 +53,27 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         }
     }
 
-    public ArrayList<incidencia> listado(){
-        String sqllite = "select * from " + TABLE_NAME;
+    public ArrayList<incidencia> listado() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME,null);
         ArrayList<incidencia> incidenciaa = new ArrayList<>();
-        Cursor c = sqLiteDatabase.rawQuery(sqllite, null);
-        if(c.moveToFirst()){
+        //Cursor c = sqLiteDatabase.rawQuery(sqllite, null);
+        if(cursor.moveToFirst()){
             do{
-                String titol = c.getString(1);
-                String urgencia = c.getString(2);
-                incidenciaa.add(new incidencia(titol, urgencia));
-            } while (c.moveToNext());
+                incidenciaa.add(new incidencia(cursor.getString(0),cursor.getString(1)));
+                //String titol = cursor.getString(1);
+                //String urgencia = cursor.getString(2);
+                //incidenciaa.add(new incidencia(titol, urgencia));
+            } while (cursor.moveToNext());
         }
-        c.close();
         return incidenciaa;
+    }
+
+    public void abrir() {
+        this.getWritableDatabase();
+    }
+
+    public void cerrar() {
+        this.close();
     }
 }
