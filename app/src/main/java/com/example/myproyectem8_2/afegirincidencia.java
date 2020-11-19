@@ -44,26 +44,30 @@ public class afegirincidencia extends Fragment {
         dbHelper = new IncidenciaDBHelper(getContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
 
-        /*urgencia = afegir.findViewById(R.id.spinner1);
+        urgencia = afegir.findViewById(R.id.spinner1);
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.Lista, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         urgencia.setAdapter(adapter);
-        urgencia.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        urgencia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String a = adapter.getItem(i).toString();
             }
-        });*/
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         btnafegirincidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String urgenci = urgencia.getSelectedItem().toString();
+                String urgenci = urgencia.getSelectedItem().toString();
                 EditText txtIncidencia = afegir.findViewById(R.id.txtincidencia);
-                //incidencia inci = new incidencia(txtIncidencia,urgenci);
-                //dbHelper.insertIncidencia(sqLiteDatabase,inci);
-
-
+                incidencia inci = new incidencia(txtIncidencia,urgenci);
+                dbHelper.insertIncidencia(sqLiteDatabase,inci);
             }
         });
         return afegir;
