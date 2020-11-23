@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import com.example.myproyectem8_2.incidencia;
 
 import java.util.ArrayList;
@@ -19,8 +21,17 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "incidencies.db";
-    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + TABLE_NAME + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_NAME_TITOL + " TEXT," + COLUMN_NAME_URGENCIA + " TEXT)";
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE "
+            + IncidenciaContract.IncidenciaEntry.TABLE_NAME
+            + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL + " TEXT,"
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA + " TEXT)";
 
+    private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + IncidenciaContract.IncidenciaEntry.TABLE_NAME;
+
+    public IncidenciaDBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+    }
 
     public IncidenciaDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,24 +44,31 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        sqLiteDatabase.execSQL(SQL_DELETE_ENTRIES);
+        onCreate(sqLiteDatabase);
     }
 
-    public void insertIncidencia(SQLiteDatabase sqLiteDatabase, incidencia i){
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public void insertIncidencia(incidencia inci){
+        SQLiteDatabase sq = getWritableDatabase();
+
         //Check the bd is open
-        if (sqLiteDatabase.isOpen()){
+        /*if (sqLiteDatabase.isOpen()){
             //Creation of the register for insert object with the content values
             ContentValues values = new ContentValues();
 
             //Insert the incidence getting all values
-            values.put(COLUMN_NAME_TITOL, i.getTitol());
-            values.put(COLUMN_NAME_URGENCIA, i.getUrgencia());
+            values.put(COLUMN_NAME_TITOL, inci.getTitol());
+            values.put(COLUMN_NAME_URGENCIA, inci.getUrgencia());
 
             sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
         }else{
             Log.d("sql","Database is closed");
-        }
+        }*/
     }
 
     public ArrayList<incidencia> listado() {

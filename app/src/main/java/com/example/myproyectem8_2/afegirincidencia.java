@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.myproyectem8_2.DB.IncidenciaDBHelper;
 
@@ -23,8 +24,9 @@ import com.example.myproyectem8_2.DB.IncidenciaDBHelper;
 public class afegirincidencia extends Fragment {
 
     //Create the instance of dbHelper
-    private IncidenciaDBHelper dbHelper;
+    IncidenciaDBHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
+    EditText txtIncidencia;
 
     public Spinner urgencia;
 
@@ -38,11 +40,11 @@ public class afegirincidencia extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View afegir = inflater.inflate(R.layout.fragment_afegirincidencia, container, false);
-        final Button btnafegirincidencia = afegir.findViewById(R.id.btnafegirincidencia);
+        Button btnafegirincidencia = afegir.findViewById(R.id.btnafegirincidencia);
 
         //Creation of the dbHelper
-        dbHelper = new IncidenciaDBHelper(getContext());
-        sqLiteDatabase = dbHelper.getWritableDatabase();
+        dbHelper = new IncidenciaDBHelper(getActivity(),"OtraBase.db",null,1);
+        //sqLiteDatabase = dbHelper.getWritableDatabase();
 
         urgencia = afegir.findViewById(R.id.spinner1);
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.Lista, android.R.layout.simple_spinner_item);
@@ -64,10 +66,20 @@ public class afegirincidencia extends Fragment {
         btnafegirincidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String urgenci = urgencia.getSelectedItem().toString();
+                txtIncidencia = afegir.findViewById(R.id.txtincidencia);
+                incidencia inci = new incidencia(txtIncidencia.getText().toString(),"");
+                dbHelper.insertIncidencia(inci);
+                dbHelper.close();
+                showMessage("insercion correcta");
+                /*String urgenci = urgencia.getSelectedItem().toString();
                 EditText txtIncidencia = afegir.findViewById(R.id.txtincidencia);
                 incidencia inci = new incidencia(txtIncidencia,urgenci);
-                dbHelper.insertIncidencia(sqLiteDatabase,inci);
+                dbHelper.insertIncidencia(sqLiteDatabase,inci);*/
+            }
+
+            //metodo atajo para el toast vista usuario
+            protected void showMessage(String message) {
+                Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
             }
         });
         return afegir;
