@@ -53,8 +53,16 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public void insertIncidencia(incidencia inci){
+    public void insertIncidencia(incidencia inci) {
         SQLiteDatabase sq = getWritableDatabase();
+        //Creation of the register for insert object with the content values
+        ContentValues values = new ContentValues();
+
+        //Insert the incidence getting all values
+        values.put(IncidenciaContract.IncidenciaEntry.ID,1);
+        values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL, inci.getTitol());
+        values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA, inci.getUrgencia());
+        sq.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
 
         //Check the bd is open
         /*if (sqLiteDatabase.isOpen()){
@@ -73,16 +81,15 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
 
     public ArrayList<incidencia> listado() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        incidencia insi;
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME,null);
-        ArrayList<incidencia> incidenciaa = new ArrayList<>();
-        //Cursor c = sqLiteDatabase.rawQuery(sqllite, null);
-        if(cursor.moveToFirst()){
-            do{
-                incidenciaa.add(new incidencia(cursor.getString(0),cursor.getString(1)));
-                //String titol = cursor.getString(1);
-                //String urgencia = cursor.getString(2);
-                //incidenciaa.add(new incidencia(titol, urgencia));
-            } while (cursor.moveToNext());
+        ArrayList<incidencia> incidenciaa = new ArrayList<incidencia>();
+
+        while (cursor.moveToFirst()){
+            insi = new incidencia();
+            insi.setTitol(cursor.getString(0));
+            insi.setUrgencia(cursor.getString(1));
+            incidenciaa.add(insi);
         }
         return incidenciaa;
     }
