@@ -36,7 +36,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         TextView etiquetaUrgencia;
         ConstraintLayout layout;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             etiquetaTitol = itemView.findViewById(R.id.itemlistadoIncidencia);
@@ -44,8 +43,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
             layout = itemView.findViewById(R.id.layout);
         }
 
-
     }
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.etiquetaTitol.setText(array.get(position).getTitol());

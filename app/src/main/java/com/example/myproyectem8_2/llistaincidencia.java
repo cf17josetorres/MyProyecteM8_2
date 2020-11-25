@@ -37,7 +37,6 @@ public class llistaincidencia extends Fragment {
         dbHelper = new IncidenciaDBHelper(getContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
 
-
         /*ArrayList<incidencia> lista = new ArrayList<incidencia>();
 
         lista = dbHelper.listado();

@@ -49,12 +49,12 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onUpgrade(db, oldVersion, newVersion);
+    public void onDowngrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        onUpgrade(sqLiteDatabase, oldVersion, newVersion);
     }
 
     public void insertIncidencia(incidencia inci) {
-        SQLiteDatabase sq = getWritableDatabase();
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         //Creation of the register for insert object with the content values
         ContentValues values = new ContentValues();
 
@@ -62,7 +62,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         values.put(IncidenciaContract.IncidenciaEntry.ID,1);
         values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL, inci.getTitol());
         values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA, inci.getUrgencia());
-        sq.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
+        sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
 
         //Check the bd is open
         /*if (sqLiteDatabase.isOpen()){
