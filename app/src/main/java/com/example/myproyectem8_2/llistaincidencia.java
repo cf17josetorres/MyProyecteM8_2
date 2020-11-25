@@ -38,20 +38,20 @@ public class llistaincidencia extends Fragment {
         sqLiteDatabase = dbHelper.getWritableDatabase();
 
 
-        ArrayList<incidencia> lista = new ArrayList<incidencia>();
+        /*ArrayList<incidencia> lista = new ArrayList<incidencia>();
 
         lista = dbHelper.listado();
 
         for(incidencia ina: lista) {
             System.out.println(ina.getTitol()+" "+ina.getUrgencia());
-        }
+        }*/
 
         // Inflate the layout for this fragment
-       // RecyclerView recyclerView = (RecyclerView)llistaincidencia.findViewById(R.id.RV);
-                View llistaincidencia = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
-        /*recyclerView.setLayoutManager(new LinearLayoutManager(llistaincidencia.getContext()));
+        View llistaincidencia = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
+        RecyclerView recyclerView = (RecyclerView)llistaincidencia.findViewById(R.id.RV);
+        recyclerView.setLayoutManager(new LinearLayoutManager(llistaincidencia.getContext()));
         RVAdapter adapter = new RVAdapter(this, dbHelper.listado());
-        recyclerView.setAdapter(adapter);*/
+        recyclerView.setAdapter(adapter);
 
         return llistaincidencia;
     }

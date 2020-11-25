@@ -27,7 +27,7 @@ public class afegirincidencia extends Fragment {
     IncidenciaDBHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
     EditText txtIncidencia;
-
+    String valorspinner;
     public Spinner urgencia;
 
     public afegirincidencia() {
@@ -55,6 +55,7 @@ public class afegirincidencia extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String a = adapter.getItem(i).toString();
+                valorspinner =a;
             }
 
             @Override
@@ -67,7 +68,7 @@ public class afegirincidencia extends Fragment {
             @Override
             public void onClick(View view) {
                 txtIncidencia = afegir.findViewById(R.id.txtincidencia);
-                incidencia inci = new incidencia(txtIncidencia.getText().toString(),"");
+                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner);
                 dbHelper.insertIncidencia(inci);
                 dbHelper.close();
                 showMessage("insercion correcta");
