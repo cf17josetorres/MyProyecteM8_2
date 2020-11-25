@@ -90,6 +90,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
             insi.setTitol(cursor.getString(0));
             insi.setUrgencia(cursor.getString(1));
             incidenciaa.add(insi);
+
         }
         return incidenciaa;
     }

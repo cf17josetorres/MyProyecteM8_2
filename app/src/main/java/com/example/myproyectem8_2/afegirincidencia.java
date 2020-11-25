@@ -43,7 +43,7 @@ public class afegirincidencia extends Fragment {
         Button btnafegirincidencia = afegir.findViewById(R.id.btnafegirincidencia);
 
         //Creation of the dbHelper
-        dbHelper = new IncidenciaDBHelper(getActivity(),"OtraBase.db",null,1);
+        dbHelper = new IncidenciaDBHelper(getActivity(),IncidenciaDBHelper.DATABASE_NAME,null,1);
         //sqLiteDatabase = dbHelper.getWritableDatabase();
 
         urgencia = afegir.findViewById(R.id.spinner1);

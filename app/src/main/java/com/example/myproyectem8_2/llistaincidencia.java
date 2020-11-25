@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import com.example.myproyectem8_2.DB.IncidenciaDBHelper;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
@@ -35,12 +37,21 @@ public class llistaincidencia extends Fragment {
         dbHelper = new IncidenciaDBHelper(getContext());
         sqLiteDatabase = dbHelper.getWritableDatabase();
 
+
+        ArrayList<incidencia> lista = new ArrayList<incidencia>();
+
+        lista = dbHelper.listado();
+
+        for(incidencia ina: lista) {
+            System.out.println(ina.getTitol()+" "+ina.getUrgencia());
+        }
+
         // Inflate the layout for this fragment
-        View llistaincidencia = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
-        RecyclerView recyclerView = (RecyclerView)llistaincidencia.findViewById(R.id.RV);
-        recyclerView.setLayoutManager(new LinearLayoutManager(llistaincidencia.getContext()));
+       // RecyclerView recyclerView = (RecyclerView)llistaincidencia.findViewById(R.id.RV);
+                View llistaincidencia = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
+        /*recyclerView.setLayoutManager(new LinearLayoutManager(llistaincidencia.getContext()));
         RVAdapter adapter = new RVAdapter(this, dbHelper.listado());
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
 
         return llistaincidencia;
     }
