@@ -1,8 +1,8 @@
 package com.example.myproyectem8_2;
 
 public class Users {
-    private String username = "";
-    private String password = "";
+    private String username = "admin";//admin
+    private String password = "admin";//admin
 
     public Users(){}
 

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText password;
     Button LOGIN;
+    SharedPreferencesUsucontra sharepreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +31,20 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
 
+        sharepreferences = new SharedPreferencesUsucontra(getApplicationContext());
+
+        if(!new SharedPreferencesUsucontra(this).guardaruserpasswd()) {
+            gotomenu();
+        }
         LOGIN.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 Users user = new Users();
                 if ((username.getText().toString().trim().equals(user.getUsername())) && (password.getText().toString().trim().equals(user.getPassword()))){
+                    SharedPreferences prefs =
+                            getSharedPreferences("Datos del Login", Context.MODE_PRIVATE);
+                    sharepreferences.getUser();
+                    sharepreferences.getPassword();
                     gotomenu();
                 }
                 else{
@@ -46,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     public void gotomenu(){
         Intent intent = new Intent (getApplicationContext(),home.class);
         startActivity(intent);
+    }
 
+    private void guardaruserpasswd(String user, String password) {
+        new SharedPreferencesUsucontra(this).guardaruserpasswd(user,
+                password);
     }
 }
