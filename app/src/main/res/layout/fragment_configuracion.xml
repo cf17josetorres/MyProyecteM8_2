@@ -11,17 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Configuración"
+        android:hint="Configuración de Idioma"
         android:layout_marginTop="30dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:layout_marginStart="68dp"
         android:layout_marginEnd="68dp"
-        android:textSize="40sp"
+        android:textSize="28sp"
         android:textStyle="bold|italic" />
 
     <Button
-        android:id="@+id/btconfiguracion"
+        android:id="@+id/bt_ES_configuracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -32,7 +32,37 @@
         android:layout_marginRight="25dp"
         android:background="#39008e"
         android:gravity="center"
-        android:text="Button"
+        android:text="Español"
         android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/bt_EN_configuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="25dp"
+        android:background="#39008e"
+        android:gravity="center"
+        android:text="Inglés"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/bt_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="25dp"
+        android:background="#39008e"
+        android:gravity="center"
+        android:text="Retorna al Predeterminado"
+        android:textColor="#FFF"/>
 
 </FrameLayout>

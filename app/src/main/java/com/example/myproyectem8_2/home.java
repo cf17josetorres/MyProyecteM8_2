@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class home extends AppCompatActivity {
-    Button agregar,mostrar,eliminar;
+    Button agregar,mostrar,eliminar,confi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +20,11 @@ public class home extends AppCompatActivity {
         agregar = findViewById(R.id.agregar);
         mostrar = findViewById(R.id.mostrar);
         eliminar = findViewById(R.id.eliminar);
-
+        confi = findViewById(R.id.confi);
 
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment me = new afegirincidencia();
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
                 transactiontres.replace(R.id.contenedor,me);
@@ -53,6 +52,18 @@ public class home extends AppCompatActivity {
                 transactiontres.commit();
             }
         });
+
+        confi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment me = new Configuracion();
+                FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
+                transactiontres.replace(R.id.contenedor,me);
+                transactiontres.commit();
+            }
+        });
+
+
 
         /*Fragment me = new Menu();
         FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();

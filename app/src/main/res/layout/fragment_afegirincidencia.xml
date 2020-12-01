@@ -10,7 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="186dp"
+        android:layout_height="349dp"
         android:layout_gravity="center"
         android:orientation="vertical">
 
@@ -18,14 +18,14 @@
             android:id="@+id/txtincidencia"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:hint="Titol"
-            android:layout_gravity="center_horizontal"
-            android:singleLine="true"
             android:inputType="textPersonName"
-            android:layout_marginTop="20dp"
+            android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.57"
@@ -38,8 +38,8 @@
             android:layout_width="138dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="146dp"
-            android:layout_marginEnd="146dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="146dp"
             android:gravity="center"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,17 +49,30 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.718" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0sp"
+                android:paddingRight="0sp"
+                android:text="Descripción:"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="110dp" />
+
         <Button
             android:id="@+id/btnafegirincidencia"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:textSize="15dp"
             android:text="Agregar"
-            android:textColor="@color/design_default_color_error" />
+            android:textColor="@color/design_default_color_error"
+            android:textSize="15dp" />
 
 
     </LinearLayout>

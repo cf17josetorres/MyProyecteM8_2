@@ -10,6 +10,7 @@
     <string name="Eliminar">Eliminar</string>
     <string name="login_image_desc">Logo image</string>
     <string name="remember_password">Remember Password</string>
+    <string name="configuracion">configuracion</string>
 
     <string-array name="Lista">
         <item>Alta</item>
