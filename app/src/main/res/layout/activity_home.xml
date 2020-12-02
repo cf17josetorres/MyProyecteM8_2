@@ -18,25 +18,25 @@
             android:id="@+id/agregar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afegir" />
+            android:text="@string/Agregaa" />
 
         <Button
             android:id="@+id/mostrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Llistar" />
+            android:text="@string/Lista" />
 
         <Button
             android:id="@+id/eliminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eliminar" />
+            android:text="@string/Elimina" />
 
         <Button
             android:id="@+id/confi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Configuración" />
+            android:text="@string/Configuracinón" />
 
     </LinearLayout>
 
@@ -53,7 +53,7 @@
         android:inputType="textPersonName"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="Bienvenido"
+        android:text="@string/texto"
         android:textSize="30dp"
         android:textStyle="bold" />
 

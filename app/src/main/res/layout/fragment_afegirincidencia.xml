@@ -23,7 +23,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:ems="10"
-            android:hint="Titol"
+            android:hint="@string/Titol"
             android:inputType="textPersonName"
             android:singleLine="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="0sp"
                 android:paddingRight="0sp"
-                android:text="Descripción:"
+                android:text="@string/Descripción"
                 android:textSize="17sp" />
 
             <EditText
@@ -70,7 +70,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:text="Agregar"
+            android:text="@string/Agregar"
             android:textColor="@color/design_default_color_error"
             android:textSize="15dp" />
 

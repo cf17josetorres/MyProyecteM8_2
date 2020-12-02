@@ -68,7 +68,6 @@ public class Configuracion extends Fragment {
         //return inflater.inflate(R.layout.fragment_configuracion, container, false);
     }
 
-    //https://jarroba.com/foro/1028/boton-para-cambiar-idioma-de-la-aplicacion
     public void lenguage (String locale) {
         Configuration config = new Configuration(getResources().getConfiguration());
         config.locale = new Locale(locale);
@@ -83,6 +82,6 @@ public class Configuracion extends Fragment {
         Fragment confii = new Configuracion();
         FragmentManager menuManager = getFragmentManager();
         FragmentTransaction menuTransaction = menuManager.beginTransaction();
-        menuTransaction.replace(R.id.Menu, confii).commit();
+        menuTransaction.replace(R.id.contenedor, confii).commit();
     }
 }

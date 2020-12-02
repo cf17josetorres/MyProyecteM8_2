@@ -11,6 +11,15 @@
     <string name="login_image_desc">Logo image</string>
     <string name="remember_password">Remember Password</string>
     <string name="configuracion">configuracion</string>
+    <string name="texto">Bienvenido</string>
+    <string name="Agregaa">Afegir</string>
+    <string name="Lista">Llistar</string>
+    <string name="Elimina">Eliminar</string>
+    <string name="CDI">Configuración de Idioma</string>
+    <string name="Configuracinón">Configuración</string>
+    <string name="Descripción">Descripción</string>
+    <string name="Titol">Titol</string>
+    <string name="Agregar">Agregar</string>
 
     <string-array name="Lista">
         <item>Alta</item>

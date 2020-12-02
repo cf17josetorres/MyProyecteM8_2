@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:hint="Configuración de Idioma"
+        android:hint="@string/CDI"
         android:layout_marginTop="30dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"

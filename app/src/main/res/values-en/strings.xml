@@ -10,4 +10,20 @@
     <string name="Titulo">title</string>
     <string name="login_image_desc">"login image desc "</string>
     <string name="remember_password">Remember Password</string>
+    <string name="configuracion">Settings</string>
+    <string name="texto">Welcome</string>
+    <string name="Agregaa">Add</string>
+    <string name="Lista">List</string>
+    <string name="Elimina">Remove</string>
+    <string name="CDI">Language Settings</string>
+    <string name="Configuracinón">Settings</string>
+    <string name="Descripción">Descriptión</string>
+    <string name="Titol">Title</string>
+    <string name="Agregar">add</string>
+
+    <string-array name="Lista">
+        <item>High</item>
+        <item>Median</item>
+        <item>low</item>
+    </string-array>
 </resources>

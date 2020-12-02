@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                             getSharedPreferences("Datos del Login", Context.MODE_PRIVATE);
                     sharepreferences.getUser();
                     sharepreferences.getPassword();
+                    guardaruserpasswd(username.getText().toString().trim(), password.getText().toString().trim());
                     gotomenu();
                 }
                 else{

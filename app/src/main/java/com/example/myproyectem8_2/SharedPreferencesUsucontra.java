@@ -24,7 +24,7 @@ public class SharedPreferencesUsucontra {
 
     // Una vez que el usuario es validado, el nombre de usuario y la contraseña se escriben en SharedPreferences
     public void guardaruserpasswd(String user, String password){
-        boolean guardaruserpasswd = false;
+        //boolean guardaruserpasswd = false;
         SharedPreferences prefs =
                 context.getSharedPreferences("Datos del Login", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
@@ -38,6 +38,6 @@ public class SharedPreferencesUsucontra {
                 context.getSharedPreferences("Datos del Login", Context.MODE_PRIVATE);
         boolean username = prefs.getString("User", "").isEmpty();
         boolean pass = prefs.getString("Password", "").isEmpty();
-        return true;
+        return username || pass;
     }
 }
