@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyProyecteM8_2</string>
+    <string name="AfegirIncidencia">Lista de Incidencia</string>
+    <string name="LlistarIncidencia">Agregar Incidencia</string>
+    <string name="Eliminar">Elimina</string>
+    <string name="introducenombre">Introduce Nombre</string>
+    <string name="Entrar">Inicie Sesión</string>
+    <string name="Agrega">Agrega</string>
+    <string name="Titulo">Titulo</string>
+    <string name="login_image_desc">"login image desc "</string>
+    <string name="remember_password">Recuerda Contraseña</string>
+    <string name="configuracion">Ajustes</string>
+    <string name="texto">Bienvenido</string>
+    <string name="Agregaa">Agrega</string>
+    <string name="Lista">Lista</string>
+    <string name="Elimina">Elimina</string>
+    <string name="CDI">Ajustes de Lenguaje</string>
+    <string name="Configuracinón">Ajustes</string>
+    <string name="Descripción">Descripción</string>
+    <string name="Titol">Titulo</string>
+    <string name="Agregar">Agrega</string>
+
+    <string-array name="Lista">
+        <item>Alta</item>
+        <item>Mediana</item>
+        <item>Baja</item>
+    </string-array>
+
+</resources>
