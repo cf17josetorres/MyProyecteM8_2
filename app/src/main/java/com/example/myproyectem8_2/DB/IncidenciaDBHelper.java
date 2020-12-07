@@ -25,7 +25,10 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
             + IncidenciaContract.IncidenciaEntry.TABLE_NAME
             + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL + " TEXT,"
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA + " TEXT)";
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA + " TEXT"
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DESCRIPCION + "TEXT"
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO + "TEXT"
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA + "TEXT)";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + IncidenciaContract.IncidenciaEntry.TABLE_NAME;
 
@@ -53,16 +56,24 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         onUpgrade(sqLiteDatabase, oldVersion, newVersion);
     }
 
-    public void insertIncidencia(incidencia inci) {
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        //Creation of the register for insert object with the content values
-        ContentValues values = new ContentValues();
+    public void insertIncidencia(SQLiteDatabase sqLiteDatabase, incidencia inci) {
+        //SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        //Check the bd is open
+        if (sqLiteDatabase.isOpen()) {
+            //Creation of the register for insert object with the content values
+            ContentValues values = new ContentValues();
 
-        //Insert the incidence getting all values
-        values.put(IncidenciaContract.IncidenciaEntry.ID,1);
-        values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL, inci.getTitol());
-        values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA, inci.getUrgencia());
-        sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
+            //Insert the incidence getting all values
+            values.put(IncidenciaContract.IncidenciaEntry.ID,1);
+            values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL, inci.getTitol());
+            values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA, inci.getUrgencia());
+            values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DESCRIPCION, inci.getDesc());
+            values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO, inci.getEstat());
+            values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA, inci.getData());
+            sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
+        } else {
+            Log.d("sql", "Database is closed");
+        }
 
         //Check the bd is open
         /*if (sqLiteDatabase.isOpen()){
@@ -79,27 +90,37 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         }*/
     }
 
-    public ArrayList<incidencia> listado() {
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+    public static ArrayList<incidencia> listado(SQLiteDatabase sqLiteDatabase) {
+        //SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         incidencia insi;
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME,null);
         ArrayList<incidencia> incidenciaa = new ArrayList<incidencia>();
 
-        while (cursor.moveToFirst()){
-            insi = new incidencia();
-            insi.setTitol(cursor.getString(0));
-            insi.setUrgencia(cursor.getString(1));
-            incidenciaa.add(insi);
-
+        if (cursor != null && cursor.getCount()>0) {
+            cursor.moveToFirst();
+            while (cursor.moveToNext()) {
+                insi = new incidencia();
+                insi.setTitol(cursor.getString(0));
+                insi.setUrgencia(cursor.getString(1));
+                insi.setDesc(cursor.getString(2));
+                insi.setEstat(cursor.getInt(3));
+                insi.setData(cursor.getLong(4));
+                incidenciaa.add(insi);
+            }
         }
+        cursor.close();
         return incidenciaa;
     }
 
-    public void abrir() {
+    public static void incidenciaeliminada(SQLiteDatabase sqLiteDatabase) {
+
+    }
+
+    /*public void abrir() {
         this.getWritableDatabase();
     }
 
     public void cerrar() {
         this.close();
-    }
+    }*/
 }

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.myproyectem8_2.DB.IncidenciaDBHelper;
 
@@ -46,12 +48,11 @@ public class llistaincidencia extends Fragment {
         }*/
 
         // Inflate the layout for this fragment
-        View llistaincidencia = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
-        RecyclerView recyclerView = (RecyclerView)llistaincidencia.findViewById(R.id.RV);
-        recyclerView.setLayoutManager(new LinearLayoutManager(llistaincidencia.getContext()));
-        RVAdapter adapter = new RVAdapter(this, dbHelper.listado());
+        View view = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
+        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.RV);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        RVAdapter adapter = new RVAdapter(getContext(), IncidenciaDBHelper.listado(sqLiteDatabase));
         recyclerView.setAdapter(adapter);
-
-        return llistaincidencia;
+        return view;
     }
 }

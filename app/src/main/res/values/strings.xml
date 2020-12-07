@@ -20,11 +20,21 @@
     <string name="Descripción">Descripción</string>
     <string name="Titol">Titol</string>
     <string name="Agregar">Agregar</string>
+    <string name="Introduce_la_Incidencia">Introducir la Incidencia</string>
+    <string name="OK">OK</string>
 
     <string-array name="Lista">
         <item>Alta</item>
         <item>Mediana</item>
         <item>Baja</item>
     </string-array>
+
+    <string-array name="ListadeEstado">
+        <item>Pendent</item>
+        <item>Assignat</item>
+        <item>Realitzat</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="DI">Información de Datos</string>
 
 </resources>

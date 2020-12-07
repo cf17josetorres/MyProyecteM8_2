@@ -20,6 +20,9 @@
     <string name="Descripción">Descripción</string>
     <string name="Titol">Titulo</string>
     <string name="Agregar">Agrega</string>
+    <string name="Introduce_la_Incidencia">Introducir la Incidencia</string>
+    <string name="OK">OK</string>
+    <string name="DI">Información de Datos</string>
 
     <string-array name="Lista">
         <item>Alta</item>
