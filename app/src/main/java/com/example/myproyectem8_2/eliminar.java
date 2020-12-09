@@ -3,6 +3,7 @@ package com.example.myproyectem8_2;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -47,6 +48,7 @@ public class eliminar extends Fragment {
         elim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String titlee = nombreincidenciaa.getText().toString();
 
             }
         });

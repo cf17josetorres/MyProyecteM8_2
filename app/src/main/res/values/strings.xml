@@ -36,5 +36,9 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="DI">Información de Datos</string>
+    <string name="Info">Información</string>
+    <string name="listaestadotitle">Titulo: </string>
+    <string name="listaestadourgencia">Urgencia: </string>
+    <string name="dataactual">Data: </string>
 
 </resources>

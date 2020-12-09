@@ -23,6 +23,10 @@
     <string name="Introduce_la_Incidencia">Introducir la Incidencia</string>
     <string name="OK">OK</string>
     <string name="DI">Información de Datos</string>
+    <string name="Info">Información</string>
+    <string name="listaestadotitle">Title</string>
+    <string name="listaestadourgencia">Urgencia</string>
+    <string name="dataactual">Fecha</string>
 
     <string-array name="Lista">
         <item>Alta</item>

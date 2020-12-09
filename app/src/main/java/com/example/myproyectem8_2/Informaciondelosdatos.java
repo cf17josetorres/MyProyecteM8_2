@@ -18,6 +18,7 @@ import com.example.myproyectem8_2.DB.IncidenciaDBHelper;
 public class Informaciondelosdatos extends Fragment {
     String title, urgenci, descrip, fecha;
     int estad;
+
     //Create the instance of dbHelper
     private IncidenciaDBHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
@@ -29,6 +30,11 @@ public class Informaciondelosdatos extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //Creation of the dbHelper
+        dbHelper = new IncidenciaDBHelper(getContext());
+        sqLiteDatabase = dbHelper.getWritableDatabase();
+
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_informaciondelosdatos, container, false);
         title = getArguments().getString("ITEM_TITLE");

@@ -56,11 +56,10 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         onUpgrade(sqLiteDatabase, oldVersion, newVersion);
     }
 
-    public void insertIncidencia(SQLiteDatabase sqLiteDatabase, incidencia inci) {
-        //SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        //Check the bd is open
-        if (sqLiteDatabase.isOpen()) {
-            //Creation of the register for insert object with the content values
+    public void insertIncidencia(incidencia inci) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        //Creation of the register for insert object with the content values
             ContentValues values = new ContentValues();
 
             //Insert the incidence getting all values
@@ -71,10 +70,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
             values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO, inci.getEstat());
             values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA, inci.getData());
             sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
-        } else {
-            Log.d("sql", "Database is closed");
         }
-
         //Check the bd is open
         /*if (sqLiteDatabase.isOpen()){
             //Creation of the register for insert object with the content values
@@ -88,7 +84,6 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         }else{
             Log.d("sql","Database is closed");
         }*/
-    }
 
     public static ArrayList<incidencia> listado(SQLiteDatabase sqLiteDatabase) {
         //SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -96,7 +91,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME,null);
         ArrayList<incidencia> incidenciaa = new ArrayList<incidencia>();
 
-        if (cursor != null && cursor.getCount()>0) {
+        if (cursor.getCount()>0) {
             cursor.moveToFirst();
             while (cursor.moveToNext()) {
                 insi = new incidencia();
@@ -108,7 +103,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
                 incidenciaa.add(insi);
             }
         }
-        cursor.close();
+        //cursor.close();
         return incidenciaa;
     }
 

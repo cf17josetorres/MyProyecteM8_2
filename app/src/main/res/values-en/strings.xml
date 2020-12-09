@@ -23,6 +23,10 @@
     <string name="Introduce_la_Incidencia">Enter the Incident</string>
     <string name="OK">Enter</string>
     <string name="DI">Data de Informatión</string>
+    <string name="Info">Informatión</string>
+    <string name="listaestadotitle">Title</string>
+    <string name="listaestadourgencia">Urgenci</string>
+    <string name="dataactual">Data</string>
 
     <string-array name="Lista">
         <item>High</item>

@@ -53,12 +53,12 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.etiquetaTitol.setText(array.get(position).getTitol());
         holder.etiquetaUrgencia.setText(array.get(position).getUrgencia());
         holder.etiquetaDescripcion.setText(array.get(position).getDesc());
         holder.etiquetaEstado.setText(array.get(position).getEstat());
-        //holder.etiquetaData.setText(array.get(position).getData());
+        holder.etiquetaData.setText(array.get(position).fechaactual());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +66,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
                 AppCompatActivity activity = (AppCompatActivity)v.getContext();
                 Informaciondelosdatos activi =new Informaciondelosdatos();
                 Bundle bundle = new Bundle();
-                /*bundle.putString("ITEM_TITLE", array.get(position).getTitol());
+                bundle.putString("ITEM_TITLE", array.get(position).getTitol());
                 bundle.putString("ITEM_URGENCIA",array.get(position).getUrgencia());
                 bundle.putString("ITEM_DESCRIPCION",array.get(position).getDesc());
-                bundle.putString("ITEM_ESTADO",array.get(position).getEstat());
-                bundle.putString("ITEM_DATA",array.get(position).getData());*/
+                bundle.putInt("ITEM_ESTADO",array.get(position).getEstat());
+                bundle.putString("ITEM_DATA",array.get(position).fechaactual());
 
                 activi.setArguments(bundle);
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, activi).addToBackStack(null).commit();
