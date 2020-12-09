@@ -24,11 +24,11 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE "
             + IncidenciaContract.IncidenciaEntry.TABLE_NAME
             + "(" + IncidenciaContract.IncidenciaEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL + " TEXT,"
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA + " TEXT"
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DESCRIPCION + "TEXT"
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO + "TEXT"
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA + "TEXT)";
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_TITOL + " TEXT, "
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA + " TEXT, "
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DESCRIPCION + " TEXT, "
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO + " TEXT, "
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + IncidenciaContract.IncidenciaEntry.TABLE_NAME;
 

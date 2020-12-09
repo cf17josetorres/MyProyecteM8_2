@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 // Code here executes on main thread after user presses button
                 Users user = new Users();
                 if ((username.getText().toString().trim().equals(user.getUsername())) && (password.getText().toString().trim().equals(user.getPassword()))){
+                //if ((username.getText().toString().trim().equals("")) && (password.getText().toString().trim().equals(""))){
                     SharedPreferences prefs =
                             getSharedPreferences("Datos del Login", Context.MODE_PRIVATE);
                     sharepreferences.getUser();

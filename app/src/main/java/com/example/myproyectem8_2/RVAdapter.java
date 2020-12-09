@@ -73,7 +73,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
                 bundle.putString("ITEM_DATA",array.get(position).fechaactual());
 
                 activi.setArguments(bundle);
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, activi).addToBackStack(null).commit();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.rvmuestra, activi).addToBackStack(null).commit();
             }
         });
     }

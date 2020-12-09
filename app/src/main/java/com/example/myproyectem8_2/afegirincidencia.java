@@ -26,7 +26,7 @@ public class afegirincidencia extends Fragment {
     //Create the instance of dbHelper
     IncidenciaDBHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
-    EditText txtIncidencia;
+    EditText txtIncidencia, des;
     String valorspinner;
     public Spinner urgencia;
 
@@ -67,7 +67,9 @@ public class afegirincidencia extends Fragment {
             @Override
             public void onClick(View view) {
                 txtIncidencia = afegir.findViewById(R.id.txtincidencia);
+                des = afegir.findViewById(R.id.descripcion);
                 incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner);
+                des.getText().toString();
                 dbHelper.insertIncidencia(inci);
                 dbHelper.close();
                 showMessage("insercion correcta");
