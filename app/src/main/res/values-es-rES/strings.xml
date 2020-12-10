@@ -27,6 +27,9 @@
     <string name="listaestadotitle">Title</string>
     <string name="listaestadourgencia">Urgencia</string>
     <string name="dataactual">Fecha</string>
+    <string name="estat_pendent">PENDIENTE</string>
+    <string name="estat_assignat">ASSIGNADO</string>
+    <string name="estat_realitzat">REALIZADO</string>
 
     <string-array name="Lista">
         <item>Alta</item>

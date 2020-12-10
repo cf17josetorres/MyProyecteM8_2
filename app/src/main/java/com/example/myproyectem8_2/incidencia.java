@@ -66,4 +66,11 @@ public class incidencia {
         String formatodelafechaactual = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(data);
         return formatodelafechaactual;
     }
+    /*
+    No Consigo que la fecha este correctamente.
+        Date data = Calendar.getInstance().getTime();
+        DateFormat formatoFecha = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String formatodelafechaactual = formatoFecha.format(data);
+        return formatodelafechaactual;
+     */
 }

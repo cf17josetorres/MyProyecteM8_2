@@ -40,5 +40,8 @@
     <string name="listaestadotitle">Titulo: </string>
     <string name="listaestadourgencia">Urgencia: </string>
     <string name="dataactual">Data: </string>
+    <string name="estat_pendent">PENDENT</string>
+    <string name="estat_assignat">ASSIGNAT</string>
+    <string name="estat_realitzat">REALITZAT</string>
 
 </resources>

@@ -27,6 +27,9 @@
     <string name="listaestadotitle">Title</string>
     <string name="listaestadourgencia">Urgenci</string>
     <string name="dataactual">Data</string>
+    <string name="estat_pendent">PENDING</string>
+    <string name="estat_assignat">ASSIGNED</string>
+    <string name="estat_realitzat">SOLVED</string>
 
     <string-array name="Lista">
         <item>High</item>

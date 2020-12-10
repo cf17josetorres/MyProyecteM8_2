@@ -28,7 +28,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
             + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_URGENCIA + " TEXT, "
             + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DESCRIPCION + " TEXT, "
             + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO + " TEXT, "
-            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA + " TEXT)";
+            + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA + " TEXT);";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + IncidenciaContract.IncidenciaEntry.TABLE_NAME;
 
@@ -38,6 +38,9 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
 
     public IncidenciaDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static void modificaelestado(SQLiteDatabase sqLiteDatabase, int estad) {
     }
 
     @Override
@@ -89,6 +92,10 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         //SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         incidencia insi;
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME,null);
+        int estat = 0;
+        if (estat !=3) {
+            cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where " + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO + " = " + estat, null);
+        }
         ArrayList<incidencia> incidenciaa = new ArrayList<incidencia>();
 
         if (cursor.getCount()>0) {
@@ -108,7 +115,7 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
     }
 
     public static void incidenciaeliminada(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.delete(TABLE_NAME ,  COLUMN_NAME_TITOL , null);
     }
 
     /*public void abrir() {

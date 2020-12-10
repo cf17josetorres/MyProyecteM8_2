@@ -68,11 +68,12 @@ public class afegirincidencia extends Fragment {
             public void onClick(View view) {
                 txtIncidencia = afegir.findViewById(R.id.txtincidencia);
                 des = afegir.findViewById(R.id.descripcion);
-                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner);
                 des.getText().toString();
+                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner);
+                inci.setData(System.currentTimeMillis() / 1000);
                 dbHelper.insertIncidencia(inci);
                 dbHelper.close();
-                showMessage("insercion correcta");
+                showMessage("INSERCIÓN CORRECTA");
                 /*String urgenci = urgencia.getSelectedItem().toString();
                 EditText txtIncidencia = afegir.findViewById(R.id.txtincidencia);
                 incidencia inci = new incidencia(txtIncidencia,urgenci);
