@@ -1,5 +1,6 @@
 package com.example.myproyectem8_2.DB;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -74,41 +75,25 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
             values.put(IncidenciaContract.IncidenciaEntry.COLUMN_NAME_DATA, inci.getData());
             sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
         }
-        //Check the bd is open
-        /*if (sqLiteDatabase.isOpen()){
-            //Creation of the register for insert object with the content values
-            ContentValues values = new ContentValues();
 
-            //Insert the incidence getting all values
-            values.put(COLUMN_NAME_TITOL, inci.getTitol());
-            values.put(COLUMN_NAME_URGENCIA, inci.getUrgencia());
-
-            sqLiteDatabase.insert(IncidenciaContract.IncidenciaEntry.TABLE_NAME, null, values);
-        }else{
-            Log.d("sql","Database is closed");
-        }*/
-
-    public static ArrayList<incidencia> listado(SQLiteDatabase sqLiteDatabase) {
-        //SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+    public ArrayList<incidencia> listado() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         incidencia insi;
-        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME,null);
-        int estat = 0;
-        if (estat !=3) {
-            cursor = sqLiteDatabase.rawQuery("select * from " + TABLE_NAME + " where " + IncidenciaContract.IncidenciaEntry.COLUMN_NAME_ESTADO + " = " + estat, null);
-        }
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from " + IncidenciaContract.IncidenciaEntry.TABLE_NAME,null);
+
         ArrayList<incidencia> incidenciaa = new ArrayList<incidencia>();
 
-        if (cursor.getCount()>0) {
-            cursor.moveToFirst();
-            while (cursor.moveToNext()) {
+        if (cursor.moveToFirst()) {
+            do{
                 insi = new incidencia();
                 insi.setTitol(cursor.getString(0));
                 insi.setUrgencia(cursor.getString(1));
                 insi.setDesc(cursor.getString(2));
                 insi.setEstat(cursor.getInt(3));
-                insi.setData(cursor.getLong(4));
+                insi.setData(cursor.getString(4));
                 incidenciaa.add(insi);
-            }
+
+            }while (cursor.moveToNext());
         }
         //cursor.close();
         return incidenciaa;

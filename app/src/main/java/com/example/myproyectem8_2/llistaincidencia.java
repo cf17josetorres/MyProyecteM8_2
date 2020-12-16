@@ -43,18 +43,18 @@ public class llistaincidencia extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
 
-        String estat [] = {"Pendent", "Assignat", "Realitzat"};
+        //String estat [] = {"Pendent", "Assignat", "Realitzat"};
 
-        final Spinner spinner = (Spinner) view.findViewById(R.id.spinner2);
+        /*final Spinner spinner = (Spinner) view.findViewById(R.id.spinner2);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, estat);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
         Button botonok = view.findViewById(R.id.btok);
         botonok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String estatt = spinner.getSelectedItem().toString();
+                /*String estatt = spinner.getSelectedItem().toString();
                 int listaestado = 0;
                 if (estatt.equals("Pendent")) {
                     listaestado = 0;
@@ -63,7 +63,16 @@ public class llistaincidencia extends Fragment {
                 } else if (estatt.equals("Realitzat")) {
                     listaestado = 2;
                 }
-                listarv(view,listaestado);
+                listarv(view,listaestado);*/
+                ArrayList<incidencia> lista = new ArrayList<incidencia>();
+
+                lista = dbHelper.listado();
+
+                for(incidencia ina: lista) {
+                    System.out.println("AAAAAAA"+ina.getTitol()+" "+ina.getUrgencia());
+                }
+
+                dbHelper.close();
             }
         });
         return view;
@@ -79,10 +88,13 @@ public class llistaincidencia extends Fragment {
 
     public void listarv(View view, int listaestado) {
         //View view = inflater.inflate(R.layout.fragment_llistaincidencia, container, false);
-        RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.RV);
+        /*RecyclerView recyclerView = (RecyclerView)view.findViewById(R.id.RV);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         RVAdapter adapter = new RVAdapter(getContext(), IncidenciaDBHelper.listado(sqLiteDatabase));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
+
+
+
     }
 
 }

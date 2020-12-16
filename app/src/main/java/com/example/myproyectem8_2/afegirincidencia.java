@@ -13,9 +13,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myproyectem8_2.DB.IncidenciaDBHelper;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +31,8 @@ public class afegirincidencia extends Fragment {
     //Create the instance of dbHelper
     IncidenciaDBHelper dbHelper;
     private SQLiteDatabase sqLiteDatabase;
-    EditText txtIncidencia, des;
+    EditText txtIncidencia;
+    EditText txtdescripcion;
     String valorspinner;
     public Spinner urgencia;
 
@@ -66,11 +72,14 @@ public class afegirincidencia extends Fragment {
         btnafegirincidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Date data = Calendar.getInstance().getTime();
+                String formatodelafechaactual = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(data);
+
                 txtIncidencia = afegir.findViewById(R.id.txtincidencia);
-                des = afegir.findViewById(R.id.descripcion);
-                des.getText().toString();
-                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner);
-                inci.setData(System.currentTimeMillis() / 1000);
+                txtdescripcion = afegir.findViewById(R.id.descripcion);
+
+                System.out.println("DESCRIPCION"+txtdescripcion.getText().toString());
+                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner,txtdescripcion.getText().toString(),formatodelafechaactual);
                 dbHelper.insertIncidencia(inci);
                 dbHelper.close();
                 showMessage("INSERCIÓN CORRECTA");

@@ -1,3 +1,4 @@
+
 package com.example.myproyectem8_2;
 
 import android.widget.EditText;
@@ -8,17 +9,16 @@ public class incidencia {
     String titol;
     String urgencia;//(Alta, Mitjana, Baixa)
     String desc;
-    int estat;//pendent, assignat, realitzat
-    long data;
+    int estat;//pendent, assignat, realitza// t
+    String data;
 
     public incidencia() {}
 
-    public incidencia(String titol, String urgencia) {
+    public incidencia(String titol, String urgencia,String desc,String data) {
         this.titol = titol;
         this.urgencia = urgencia;
-    }
-
-    public incidencia(EditText txtIncidencia, String urgenci) {
+        this.desc = desc;
+        this.data = data;
     }
 
     public String getTitol() {
@@ -53,19 +53,13 @@ public class incidencia {
         this.estat = estat;
     }
 
-    public long getData() {
+    public void setData(String data) {
+        this.data = data;
+    }
+    public String getData() {
         return data;
     }
 
-    public void setData(long data) {
-        this.data = data;
-    }
-
-    public String fechaactual(){
-        Long data = this.getData()*1000;
-        String formatodelafechaactual = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(data);
-        return formatodelafechaactual;
-    }
     /*
     No Consigo que la fecha este correctamente.
         Date data = Calendar.getInstance().getTime();

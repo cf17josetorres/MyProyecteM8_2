@@ -49,18 +49,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.718" />
 
-            <TextView
+            <EditText
+                android:id="@+id/descripcion"
+                android:hint="@string/Descripción"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="0sp"
                 android:paddingRight="0sp"
-                android:text="@string/Descripción"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/descripcion"
-                android:layout_width="match_parent"
-                android:layout_height="110dp" />
 
         <Button
             android:id="@+id/btnafegirincidencia"

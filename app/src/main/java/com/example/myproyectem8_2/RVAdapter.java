@@ -58,7 +58,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         holder.etiquetaUrgencia.setText(array.get(position).getUrgencia());
         holder.etiquetaDescripcion.setText(array.get(position).getDesc());
         holder.etiquetaEstado.setText(array.get(position).getEstat());
-        holder.etiquetaData.setText(array.get(position).fechaactual());
+        holder.etiquetaData.setText(array.get(position).getData());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +70,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
                 bundle.putString("ITEM_URGENCIA",array.get(position).getUrgencia());
                 bundle.putString("ITEM_DESCRIPCION",array.get(position).getDesc());
                 bundle.putInt("ITEM_ESTADO",array.get(position).getEstat());
-                bundle.putString("ITEM_DATA",array.get(position).fechaactual());
+                bundle.putString("ITEM_DATA",array.get(position).getData());
 
                 activi.setArguments(bundle);
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.rvmuestra, activi).addToBackStack(null).commit();
