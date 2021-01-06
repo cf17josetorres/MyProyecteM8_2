@@ -38,7 +38,7 @@ public class eliminar extends Fragment {
                              Bundle savedInstanceState) {
 
         //Creation of the dbHelper
-        dbHelper = new IncidenciaDBHelper(getContext());
+        dbHelper = new IncidenciaDBHelper(getActivity().getApplicationContext(),IncidenciaDBHelper.DATABASE_NAME, null, 1);
         sqLiteDatabase = dbHelper.getWritableDatabase();
 
         // Inflate the layout for this fragment

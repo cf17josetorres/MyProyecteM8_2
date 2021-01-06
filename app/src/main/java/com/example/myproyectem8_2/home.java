@@ -25,9 +25,9 @@ public class home extends AppCompatActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment me = new afegirincidencia();
+                Fragment agregar = new afegirincidencia();
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
-                transactiontres.replace(R.id.contenedor,me);
+                transactiontres.replace(R.id.contenedor,agregar);
                 transactiontres.commit();
 
             }
@@ -36,9 +36,9 @@ public class home extends AppCompatActivity {
         mostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment me = new llistaincidencia();
+                Fragment listar = new llistaincidencia();
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
-                transactiontres.replace(R.id.contenedor,me);
+                transactiontres.replace(R.id.contenedor,listar);
                 transactiontres.commit();
             }
         });
@@ -46,9 +46,9 @@ public class home extends AppCompatActivity {
         eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment me = new eliminar();
+                Fragment eliminar = new eliminar();
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
-                transactiontres.replace(R.id.contenedor,me);
+                transactiontres.replace(R.id.contenedor,eliminar);
                 transactiontres.commit();
             }
         });
@@ -56,9 +56,9 @@ public class home extends AppCompatActivity {
         confi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment me = new Configuracion();
+                Fragment configuracion = new Configuracion();
                 FragmentTransaction transactiontres = getSupportFragmentManager().beginTransaction();
-                transactiontres.replace(R.id.contenedor,me);
+                transactiontres.replace(R.id.contenedor, configuracion);
                 transactiontres.commit();
             }
         });

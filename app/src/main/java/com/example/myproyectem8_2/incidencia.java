@@ -14,7 +14,7 @@ public class incidencia {
 
     public incidencia() {}
 
-    public incidencia(String titol, String urgencia,String desc,String data) {
+    public incidencia(String titol, String urgencia, String desc, String data) {
         this.titol = titol;
         this.urgencia = urgencia;
         this.desc = desc;
@@ -56,6 +56,7 @@ public class incidencia {
     public void setData(String data) {
         this.data = data;
     }
+
     public String getData() {
         return data;
     }

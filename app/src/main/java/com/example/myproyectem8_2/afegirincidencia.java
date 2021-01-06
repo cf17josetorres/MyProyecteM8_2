@@ -47,10 +47,6 @@ public class afegirincidencia extends Fragment {
         final View afegir = inflater.inflate(R.layout.fragment_afegirincidencia, container, false);
         Button btnafegirincidencia = afegir.findViewById(R.id.btnafegirincidencia);
 
-        //Creation of the dbHelper
-        dbHelper = new IncidenciaDBHelper(getActivity(),IncidenciaDBHelper.DATABASE_NAME,null,1);
-        //sqLiteDatabase = dbHelper.getWritableDatabase();
-
         urgencia = afegir.findViewById(R.id.spinner1);
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.Lista, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -72,16 +68,20 @@ public class afegirincidencia extends Fragment {
         btnafegirincidencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Creation of the dbHelper
+                dbHelper = new IncidenciaDBHelper(getActivity().getApplicationContext(),IncidenciaDBHelper.DATABASE_NAME,null,1);
+                //sqLiteDatabase = dbHelper.getWritableDatabase();
+
                 Date data = Calendar.getInstance().getTime();
                 String formatodelafechaactual = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(data);
 
                 txtIncidencia = afegir.findViewById(R.id.txtincidencia);
                 txtdescripcion = afegir.findViewById(R.id.descripcion);
 
-                System.out.println("DESCRIPCION"+txtdescripcion.getText().toString());
-                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner,txtdescripcion.getText().toString(),formatodelafechaactual);
+                //System.out.println("DESCRIPCION"+txtdescripcion.getText().toString());
+                incidencia inci = new incidencia(txtIncidencia.getText().toString(), valorspinner, txtdescripcion.getText().toString(), formatodelafechaactual);
                 dbHelper.insertIncidencia(inci);
-                dbHelper.close();
+                //dbHelper.close();
                 showMessage("INSERCIÓN CORRECTA");
                 /*String urgenci = urgencia.getSelectedItem().toString();
                 EditText txtIncidencia = afegir.findViewById(R.id.txtincidencia);
