@@ -46,10 +46,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
             super(itemView);
             etiquetaTitol = itemView.findViewById(R.id.itemlistadoIncidencia);
             etiquetaUrgencia = itemView.findViewById(R.id.itemlistadourgencia);
-            etiquetaEstado =itemView.findViewById(R.id.itemlistaestado);
+            etiquetaDescripcion = itemView.findViewById(R.id.itemlistadesc);
+            etiquetaEstado = itemView.findViewById(R.id.itemlistaestado);
+            etiquetaData = itemView.findViewById(R.id.itemlistadata);
             layout = itemView.findViewById(R.id.layout);
         }
-
     }
 
     @Override
