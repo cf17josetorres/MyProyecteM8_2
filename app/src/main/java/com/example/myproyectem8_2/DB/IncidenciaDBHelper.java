@@ -19,7 +19,7 @@ import static com.example.myproyectem8_2.DB.IncidenciaContract.COLUMN_NAME_URGEN
 import static com.example.myproyectem8_2.DB.IncidenciaContract.TABLE_NAME;
 
 public class IncidenciaDBHelper  extends SQLiteOpenHelper {
-    //public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "incidencies.db";
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE "
             + IncidenciaContract.TABLE_NAME
@@ -36,9 +36,9 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
-    /*public IncidenciaDBHelper(Context context) {
+    public IncidenciaDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-    }*/
+    }
 
     public static void modificaelestado(SQLiteDatabase sqLiteDatabase, int estad) {
     }
@@ -75,8 +75,8 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
             sqLiteDatabase.insert(IncidenciaContract.TABLE_NAME, null, values);
         }
 
-    public ArrayList<incidencia> listado() {
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+    public static ArrayList<incidencia> listado(SQLiteDatabase sqLiteDatabase) {
+        //SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         incidencia insi;
         Cursor cursor = sqLiteDatabase.rawQuery("select * from " + IncidenciaContract.TABLE_NAME,null);
 
@@ -99,8 +99,9 @@ public class IncidenciaDBHelper  extends SQLiteOpenHelper {
         return incidenciaa;
     }
 
-    public static void incidenciaeliminada(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.delete(IncidenciaContract.TABLE_NAME ,  IncidenciaContract.COLUMN_NAME_TITOL , null);
+    public void incidenciaeliminadauser(String[] idUsuario) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete(TABLE_NAME,IncidenciaContract.ID+"=?",idUsuario);
     }
 
     /*public void abrir() {

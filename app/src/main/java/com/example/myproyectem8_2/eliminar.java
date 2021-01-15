@@ -30,6 +30,8 @@ public class eliminar extends Fragment {
     private SQLiteDatabase sqLiteDatabase;
 
     public eliminar() {
+
+       // Toast.makeText(getActivity().getApplicationContext(), "presionado", Toast.LENGTH_SHORT).show();
         // Required empty public constructor
     }
 
@@ -50,7 +52,7 @@ public class eliminar extends Fragment {
         elim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String titlee = nombreincidenciaa.getText().toString();
+                final String[] titlee = {nombreincidenciaa.getText().toString()};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("CUIDADO");
@@ -59,8 +61,8 @@ public class eliminar extends Fragment {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
-                        dbHelper.incidenciaeliminada(sqLiteDatabase);
-                        Toast.makeText(getContext(), "LA INCIDENCIA SE A ELIMINADO", Toast.LENGTH_SHORT).show();
+                        dbHelper.incidenciaeliminadauser(titlee);
+                        Toast.makeText(getActivity().getApplicationContext(), "LA INCIDENCIA SE A ELIMINADO", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {

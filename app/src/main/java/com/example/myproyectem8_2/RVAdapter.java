@@ -58,7 +58,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ViewHolder> {
         holder.etiquetaTitol.setText(array.get(position).getTitol());
         holder.etiquetaUrgencia.setText(array.get(position).getUrgencia());
         holder.etiquetaDescripcion.setText(array.get(position).getDesc());
-        holder.etiquetaEstado.setText(array.get(position).getEstat());
+        //holder.etiquetaEstado.setText(array.get(position).getEstat());
         holder.etiquetaData.setText(array.get(position).getData());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
